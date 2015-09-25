@@ -1,28 +1,31 @@
 package com.mygdx.screens;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.GL20;
 import com.mygdx.gameworld.GameRenderer;
 import com.mygdx.gameworld.GameWorld;
 
 public class GameScreen implements Screen {
 	private GameWorld world;
 	private GameRenderer renderer;
+    private float runTime;
 	
 	// This is the constructor, not the class declaration
 	public GameScreen() {
 		System.out.println("GameScreen Attached");
 		
-		world = new GameWorld();
-		renderer = new GameRenderer(world);
+		 // float screenWidth = Gdx.graphics.getWidth();
+	     // float screenHeight = Gdx.graphics.getHeight();
+	     
+	     world = new GameWorld();
+	     renderer = new GameRenderer(world);
 		
 	}
 
 	@Override
 	public void render(float delta) {
-		world.update(delta);
-		renderer.render();
+        runTime += delta;
+        world.update(delta);
+        renderer.render(runTime);
 	}
 
 	@Override

@@ -1,0 +1,11 @@
+SpaceBackgroundTexture.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+space
+  rotate: false
+  xy: 2, 2
+  size: 1000, 300
+  orig: 1000, 300
+  offset: 0, 0
+  index: -1

@@ -1,21 +1,21 @@
 package com.mygdx.gameworld;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.Rectangle;
+import com.mygdx.gameobjects.SpaceMan;
 
 public class GameWorld {
 
-    private Rectangle rect = new Rectangle(0, 0, 17, 12);
+    private SpaceMan spaceMan;
 
+    public GameWorld() {
+        spaceMan = new SpaceMan(0, 0, 50, 75);
+    }
+    
     public void update(float delta) {
-        Gdx.app.log("GameWorld", "update");
-        rect.x++;
-        if (rect.x > 137) {
-            rect.x = 0;
-        }
+    	spaceMan.update(delta);
     }
 
-    public Rectangle getRect() {
-        return rect;
-    }
+    public SpaceMan getSpaceMan() {
+		return spaceMan;
+	}
+
 }

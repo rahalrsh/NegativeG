@@ -3,67 +3,62 @@ package com.mygdx.gameworld;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.mygdx.gameobjects.SpaceMan;
+import com.mygdx.helpers.AssetLoader;
 
 
 public class GameRenderer {
 
-    private GameWorld myWorld;
+	private GameWorld myWorld;
     private OrthographicCamera cam;
-    private ShapeRenderer shapeRenderer;
+    private SpaceMan spaceMan;
+
+    private SpriteBatch batcher;
 
     public GameRenderer(GameWorld world) {
-        myWorld = world;
+    	myWorld = world;
+
         cam = new OrthographicCamera();
-        cam.setToOrtho(true, 136, 204);
-        shapeRenderer = new ShapeRenderer();
-        shapeRenderer.setProjectionMatrix(cam.combined);
+        cam.setToOrtho(true, 800, 420);
+
+        batcher = new SpriteBatch();
+        batcher.setProjectionMatrix(cam.combined);
+
+        
+        this.spaceMan = myWorld.getSpaceMan();
     }
 
-    public void render() {
+    public void render(float runTime) {
         Gdx.app.log("GameRenderer", "render");
 
-        /*
-         * 1. We draw a black background. This prevents flickering.
-         */
+        // We will move these outside of the loop for performance later.
+        // SpaceMan spaceMan = myWorld.getSpaceMan();
 
+        // Fill the entire screen with black, to prevent potential flickering.
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        /*
-         * 2. We draw the Filled rectangle
-         */
 
-        // Tells shapeRenderer to begin drawing filled shapes
-        shapeRenderer.begin(ShapeType.Filled);
+        // Begin SpriteBatch
+        batcher.begin();
+        // Disable transparency
+        // This is good for performance when drawing images that do not require
+        // transparency.
+        batcher.disableBlending();
+        batcher.draw(AssetLoader.spaceBackground, 0, 0, 800, 420);
 
-        // Chooses RGB Color of 87, 109, 120 at full opacity
-        shapeRenderer.setColor(87 / 255.0f, 109 / 255.0f, 120 / 255.0f, 1);
+        // The bird needs transparency, so we enable that again.
+        batcher.enableBlending();
 
-        // Draws the rectangle from myWorld (Using ShapeType.Filled)
-        shapeRenderer.rect(myWorld.getRect().x, myWorld.getRect().y,
-                myWorld.getRect().width, myWorld.getRect().height);
+        // Draw bird at its coordinates. Retrieve the Animation object from
+        // AssetLoader
+        // Pass in the runTime variable to get the current frame.
+        batcher.draw(AssetLoader.spacemanSwim1,
+                spaceMan.getX(), spaceMan.getY(), spaceMan.getWidth(), spaceMan.getHeight());
 
-        // Tells the shapeRenderer to finish rendering
-        // We MUST do this every time.
-        shapeRenderer.end();
-
-        /*
-         * 3. We draw the rectangle's outline
-         */
-
-        // Tells shapeRenderer to draw an outline of the following shapes
-        shapeRenderer.begin(ShapeType.Line);
-
-        // Chooses RGB Color of 255, 109, 120 at full opacity
-        shapeRenderer.setColor(255 / 255.0f, 109 / 255.0f, 120 / 255.0f, 1);
-
-        // Draws the rectangle from myWorld (Using ShapeType.Line)
-        shapeRenderer.rect(myWorld.getRect().x, myWorld.getRect().y,
-                myWorld.getRect().width, myWorld.getRect().height);
-
-        shapeRenderer.end();
+        // End SpriteBatch
+        batcher.end();
     }
 }
 

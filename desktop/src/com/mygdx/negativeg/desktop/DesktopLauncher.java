@@ -8,8 +8,8 @@ public class DesktopLauncher {
 	 public static void main (String[] arg) {
 	        LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 	        config.title = "Negative-G";
-	        config.width = 272;
-	        config.height = 408;
+	        config.width = 800;
+	        config.height = 420;
 	        new LwjglApplication(new NegativeG(), config);
 	    }
 }
