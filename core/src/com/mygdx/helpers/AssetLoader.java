@@ -1,6 +1,7 @@
 package com.mygdx.helpers;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -28,7 +29,8 @@ public class AssetLoader {
     public static TextureRegion alienGreen_hit;
     public static TextureRegion alienGreen_jump;
     
-    public static Sound coin;
+    public static Sound  coin;
+    public static Music themeMusic;
     
     public static Animation spacemanUp;
     public static Animation spacemanDown;
@@ -89,9 +91,10 @@ public class AssetLoader {
     	tapTick = basicTextureAtlas.findRegion("tapTick");
 
     	coin = Gdx.audio.newSound(Gdx.files.internal("coin.wav"));
+ 
+    	themeMusic = Gdx.audio.newMusic(Gdx.files.internal("Electric_Rain.mp3"));// credit http://soundimage.org/
     	font = new BitmapFont(Gdx.files.internal("text.fnt"));
         font.getData().setScale(.60f, -.60f);
-
          	
     }
 
