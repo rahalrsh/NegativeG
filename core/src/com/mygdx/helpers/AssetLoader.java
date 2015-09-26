@@ -1,7 +1,9 @@
 package com.mygdx.helpers;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
@@ -25,8 +27,13 @@ public class AssetLoader {
     public static TextureRegion alienGreen_swim2;
     public static TextureRegion alienGreen_hit;
     public static TextureRegion alienGreen_jump;
+    
+    public static Sound coin;
+    
     public static Animation spacemanUp;
     public static Animation spacemanDown;
+    
+    public static BitmapFont font;
     
     public static void load() {
     	
@@ -74,11 +81,17 @@ public class AssetLoader {
     	beigeAlien = new TextureRegion();
     	beigeAlien = basicTextureAtlas.findRegion("shipBeige_manned");
     	
+
     	getReady = new TextureRegion();
     	getReady = basicTextureAtlas.findRegion("textGetReady");
     	
     	tapTick = new TextureRegion();
     	tapTick = basicTextureAtlas.findRegion("tapTick");
+
+    	coin = Gdx.audio.newSound(Gdx.files.internal("coin.wav"));
+    	font = new BitmapFont(Gdx.files.internal("text.fnt"));
+        font.getData().setScale(.60f, -.60f);
+
          	
     }
 
@@ -86,5 +99,7 @@ public class AssetLoader {
     public static void dispose() {
     	basicTextureAtlas.dispose();
     	SpaceTextureAtlas.dispose();
+    	
+    	font.dispose();
     }
 }

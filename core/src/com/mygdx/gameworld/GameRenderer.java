@@ -105,6 +105,13 @@ public class GameRenderer {
 		
 		// draw Enemies
 		drawEnemies();
+		
+		// Convert integer into String
+        String score = myWorld.getScore() + "";
+
+        // Draw score text
+        AssetLoader.font.draw(batcher, "" + myWorld.getScore(), (136 / 2)
+                - (30 * score.length() - 1), 15);
 
 		// draw GET READY
 		if (myWorld.isReady())
@@ -123,6 +130,8 @@ public class GameRenderer {
 			shapeRenderer.rect(enemy3.getCollisionRect().x,enemy3.getCollisionRect().y, enemy3.getWidth(),enemy3.getHeight());
 			shapeRenderer.end();
 		}
+		
+	
 
 	}
 
