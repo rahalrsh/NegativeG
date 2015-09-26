@@ -15,12 +15,22 @@ public class SpaceMan {
         this.width = width;
         this.height = height;
         position = new Vector2(x, y);
+        // Adjust values for better physics
         velocity = new Vector2(0, 0);
-        acceleration = new Vector2(0, -10);
+        acceleration = new Vector2(0, 0);
     }
 	
 	public void update(float delta) {
+		
+		// update velocity
+		velocity.add(acceleration.cpy().scl(delta));
 
+        if (velocity.y > 200) {
+            velocity.y = 200;
+        }
+
+        // update position
+        position.add(velocity.cpy().scl(delta));
 
     }
 
@@ -47,6 +57,11 @@ public class SpaceMan {
     public float getRotation() {
         return rotation;
     }
+
+	public void setAcceleration(Vector2 acceleration) {
+		this.acceleration = acceleration;
+	}
+    
 	
 
 }

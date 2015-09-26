@@ -1,9 +1,7 @@
 package com.mygdx.helpers;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class AssetLoader {
@@ -11,13 +9,9 @@ public class AssetLoader {
 	public static TextureAtlas basicTextureAtlas;
 	// texture atlas for Background space 
     public static TextureAtlas SpaceTextureAtlas;
-    
-	public static AtlasRegion[] marioWalkRegion;
-    public static Animation marioWalkAnimation;
-    
+     
     public static TextureRegion spacemanSwim1;
     public static TextureRegion spaceBackground;
-
     
     public static void load() {
     	
@@ -29,6 +23,8 @@ public class AssetLoader {
     	
     	spaceBackground = new TextureRegion();
     	spaceBackground = SpaceTextureAtlas.findRegion("space");
+    	
+    	
          	
     }
 
