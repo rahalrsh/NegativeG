@@ -29,7 +29,7 @@ public class Scrollable {
 		}
 		
 		// Set collision rectangle position
-		collisionRect.set(position.x, position.y, width, height);
+		collisionRect.set(position.x+15, position.y+15, width-30, height-30);
 	}
 
 	// Reset: Should Override in subclass for more specific behavior.

@@ -106,16 +106,23 @@ public class GameRenderer {
 		// draw Enemies
 		drawEnemies();
 		
-		// Convert integer into String
-        String score = myWorld.getScore() + "";
-
-        // Draw score text
-        AssetLoader.font.draw(batcher, "" + myWorld.getScore(), (136 / 2)
-                - (30 * score.length() - 1), 15);
-
+		// draw player score
+		// show score at upper left corner of the screen for all the states except for GAMEOVER state
+		// for game over state we want to show it at the middle (as the player score)
+		if (!myWorld.isGameOver())
+			drawScore(136, 15);
+	
 		// draw GET READY
-		if (myWorld.isReady())
+		if (myWorld.isReady()){
+			AssetLoader.font.getData().setScale(0.60f, -0.60f);
 			drawGetReady();
+		}
+		
+		// draw GAME OVER
+		if (myWorld.isGameOver()){
+			AssetLoader.font.getData().setScale(1.20f, -1.20f);
+			drawGameOver();
+		}
 		
 		// End SpriteBatch
 		batcher.end();
@@ -125,9 +132,9 @@ public class GameRenderer {
 			shapeRenderer.begin(ShapeType.Filled);
 			shapeRenderer.setColor(Color.RED);
 			shapeRenderer.rect(spaceMan.getCollisionRect().x,spaceMan.getCollisionRect().y, spaceMan.getWidth(),spaceMan.getHeight());
-			shapeRenderer.rect(enemy1.getCollisionRect().x,enemy1.getCollisionRect().y, enemy1.getWidth(),enemy1.getHeight());
-			shapeRenderer.rect(enemy2.getCollisionRect().x,enemy2.getCollisionRect().y, enemy2.getWidth(),enemy2.getHeight());
-			shapeRenderer.rect(enemy3.getCollisionRect().x,enemy3.getCollisionRect().y, enemy3.getWidth(),enemy3.getHeight());
+			shapeRenderer.rect(enemy1.getCollisionRect().x,enemy1.getCollisionRect().y, enemy1.getCollisionRect().getWidth(),enemy1.getCollisionRect().getHeight());
+			shapeRenderer.rect(enemy2.getCollisionRect().x,enemy2.getCollisionRect().y, enemy2.getCollisionRect().getWidth(),enemy2.getCollisionRect().getHeight());
+			shapeRenderer.rect(enemy3.getCollisionRect().x,enemy3.getCollisionRect().y, enemy3.getCollisionRect().getWidth(),enemy3.getCollisionRect().getHeight());
 			shapeRenderer.end();
 		}
 		
@@ -136,8 +143,21 @@ public class GameRenderer {
 	}
 
 	private void drawGetReady() {
-		batcher.draw(AssetLoader.getReady, 200,200, 400, 60);
+		batcher.draw(AssetLoader.getReady, 200,150, 400, 60);
 		//batcher.draw(AssetLoader.tapTick, 350,200, 80, 80);
+	}
+	
+	private void drawGameOver() {
+		batcher.draw(AssetLoader.gameOver, 200,150, 400, 60);
+		drawScore(800, 250);
+	}
+	
+	private void drawScore(int x, int y) {
+		// Convert integer into String
+        String score = myWorld.getScore() + "";
+
+        // Draw score text
+        AssetLoader.font.draw(batcher, "" + myWorld.getScore(), (x / 2) - (30* score.length() - 1), y);
 	}
 
 }

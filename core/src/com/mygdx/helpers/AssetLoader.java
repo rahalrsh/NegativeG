@@ -20,7 +20,7 @@ public class AssetLoader {
     public static TextureRegion greenAlien;
     public static TextureRegion beigeAlien;
     public static TextureRegion getReady;
-    public static TextureRegion tapTick;
+    public static TextureRegion gameOver;
     
     // for animations
     public static TextureRegion alienGreen_swim1;
@@ -81,12 +81,11 @@ public class AssetLoader {
     	beigeAlien = new TextureRegion();
     	beigeAlien = basicTextureAtlas.findRegion("shipBeige_manned");
     	
-
     	getReady = new TextureRegion();
     	getReady = basicTextureAtlas.findRegion("textGetReady");
     	
-    	tapTick = new TextureRegion();
-    	tapTick = basicTextureAtlas.findRegion("tapTick");
+    	gameOver = new TextureRegion();
+    	gameOver = basicTextureAtlas.findRegion("textGameOver");
 
     	coin = Gdx.audio.newSound(Gdx.files.internal("coin.wav"));
     	font = new BitmapFont(Gdx.files.internal("text.fnt"));

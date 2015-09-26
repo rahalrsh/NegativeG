@@ -1,5 +1,6 @@
 package com.mygdx.helpers;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.mygdx.gameobjects.SpaceMan;
 import com.mygdx.gameworld.GameWorld;
@@ -31,6 +32,8 @@ public class InputHandler implements InputProcessor{
 		// If game is in get READY state, start the game by setting the game state to RUNNING
 		if(myWorld.isReady())
 			myWorld.startGame();
+		if(myWorld.isGameOver() && keycode==62)
+			myWorld.restart();
 		
 		return false;
 	}
