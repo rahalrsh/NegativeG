@@ -16,13 +16,14 @@ public class InputHandler implements InputProcessor{
     @Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 		//TODO:click to pause the game
-    	mySpaceman.onClick();
+    	//mySpaceman.onClick();
 		return false;
 	}
 	
 	@Override
 	public boolean keyDown(int keycode) {
 		// TODO Auto-generated method stub
+		mySpaceman.onkeyDown(keycode);
 		return false;
 	}
 
