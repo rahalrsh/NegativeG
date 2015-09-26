@@ -20,6 +20,7 @@ public class AssetLoader {
     public static TextureRegion yellowAlien;
     public static TextureRegion greenAlien;
     public static TextureRegion beigeAlien;
+    public static TextureRegion pinkAlien;
     public static TextureRegion getReady;
     public static TextureRegion gameOver;
     
@@ -82,6 +83,9 @@ public class AssetLoader {
     	
     	beigeAlien = new TextureRegion();
     	beigeAlien = basicTextureAtlas.findRegion("shipBeige_manned");
+    	
+    	pinkAlien = new TextureRegion();
+    	pinkAlien = basicTextureAtlas.findRegion("shipPink_manned");
     	
     	getReady = new TextureRegion();
     	getReady = basicTextureAtlas.findRegion("textGetReady");

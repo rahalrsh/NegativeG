@@ -61,7 +61,7 @@ public class GameRenderer {
 	private void drawEnemies() {
 		batcher.draw(AssetLoader.yellowAlien, enemy1.getX(), enemy1.getY(),
 				enemy1.getWidth(), enemy1.getHeight());
-		batcher.draw(AssetLoader.greenAlien, enemy2.getX(), enemy2.getY(),
+		batcher.draw(AssetLoader.pinkAlien, enemy2.getX(), enemy2.getY(),
 				enemy2.getWidth(), enemy2.getHeight());
 		batcher.draw(AssetLoader.beigeAlien, enemy3.getX(), enemy3.getY(),
 				enemy3.getWidth(), enemy3.getHeight());
