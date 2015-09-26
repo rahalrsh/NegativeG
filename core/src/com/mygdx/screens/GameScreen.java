@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.mygdx.gameworld.GameRenderer;
 import com.mygdx.gameworld.GameWorld;
+import com.mygdx.helpers.AssetLoader;
 import com.mygdx.helpers.InputHandler;
 
 public class GameScreen implements Screen {
@@ -29,6 +30,11 @@ public class GameScreen implements Screen {
 		
 		// attach the input handler to the game world 
 		Gdx.input.setInputProcessor(new InputHandler(world));
+		
+		// start theme music of the game 
+		AssetLoader.themeMusic.setLooping(true);
+		AssetLoader.themeMusic.setVolume(0.5f);
+		AssetLoader.themeMusic.play();
 	}
 
 	@Override

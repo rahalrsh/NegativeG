@@ -65,20 +65,20 @@ public class ScrollHandler {
 						+ spaceMan.getWidth()) {
 			addScore(1);
 			enemy1.setScored(true);
-			AssetLoader.coin.play();
+			AssetLoader.coin.play(0.3f);
 		} else if (!enemy2.isScored()
 				&& enemy2.getX() + (enemy2.getWidth() / 2) < spaceMan.getX()
 						+ spaceMan.getWidth()) {
 			addScore(1);
 			enemy2.setScored(true);
-			AssetLoader.coin.play();
+			AssetLoader.coin.play(0.3f);
 
 		} else if (!enemy3.isScored()
 				&& enemy3.getX() + (enemy3.getWidth() / 2) < spaceMan.getX()
 						+ spaceMan.getWidth()) {
 			addScore(1);
 			enemy3.setScored(true);
-			AssetLoader.coin.play();
+			AssetLoader.coin.play(0.3f);
 
 		}
 
