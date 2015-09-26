@@ -11,6 +11,8 @@ public class SpaceMan {
 	private float rotation; // For handling space man's rotation
 	private int width;
 	private int height;
+	
+	private boolean isMovingUp = true;
 
 	public SpaceMan(float x, float y, int width, int height) {
 		this.width = width;
@@ -43,6 +45,13 @@ public class SpaceMan {
 		}
 
 		position.add(velocity.cpy().scl(delta));
+		
+		
+		// Check which direction the spaceman is moving (Up or Down)
+		if (velocity.y < 0)
+			isMovingUp = true;
+		else
+			isMovingUp = false;
 
 	}
 
@@ -72,6 +81,10 @@ public class SpaceMan {
 
 	public void setAcceleration(Vector2 acceleration) {
 		this.acceleration = acceleration;
+	}
+
+	public boolean isMovingUp() {
+		return isMovingUp;
 	}
 
 }

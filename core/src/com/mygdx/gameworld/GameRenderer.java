@@ -68,7 +68,11 @@ public class GameRenderer {
         batcher.draw(AssetLoader.jetPack,spaceMan.getX()-15, spaceMan.getY()+10, spaceMan.getWidth()/2, spaceMan.getHeight()/2, spaceMan.getWidth(), spaceMan.getHeight(), 0.7f,0.7f,160.0f);
         
         // Pass in the runTime variable to get the current frame.
-        batcher.draw(AssetLoader.spacemanSwim1,spaceMan.getX(), spaceMan.getY(), spaceMan.getWidth(), spaceMan.getHeight());
+        if(spaceMan.isMovingUp())
+        	batcher.draw(AssetLoader.alienGreen_jump,spaceMan.getX(), spaceMan.getY(), spaceMan.getWidth(), spaceMan.getHeight());
+        else
+        	batcher.draw(AssetLoader.spacemanDown.getKeyFrame(runTime),spaceMan.getX(), spaceMan.getY(), spaceMan.getWidth(), spaceMan.getHeight());
+        
         
         // End SpriteBatch
         batcher.end();
