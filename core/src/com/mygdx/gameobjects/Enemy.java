@@ -2,6 +2,8 @@ package com.mygdx.gameobjects;
 
 import java.util.Random;
 
+import com.badlogic.gdx.math.Intersector;
+
 public class Enemy extends Scrollable {
 
 	private Random r;
@@ -21,5 +23,25 @@ public class Enemy extends Scrollable {
 		// Change the height to a random number
 		position.y = r.nextInt(250) + 15;
 	}
+	
+	// check if enemies collide with spaceman 
+	public boolean collides(SpaceMan spaceman) {
+            return Intersector.overlaps(spaceman.getCollisionRect(), collisionRect);
+
+    }
+	
+	/**
+	// Returns true if two rectangles (l1, r1) and (l2, r2) overlap
+	boolean doOverlap(Point l1, Point r1, Point l2, Point r2)
+	{
+	    // If one rectangle is on left side of other
+	    if (l1.x > r2.x || l2.x > r1.x)
+	        return false;
+	    // If one rectangle is above other
+	    if (l1.y < r2.y || l2.y < r1.y)
+	        return false;
+	    return true;
+	}
+	**/
 
 }

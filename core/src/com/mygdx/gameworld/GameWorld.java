@@ -1,5 +1,6 @@
 package com.mygdx.gameworld;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.mygdx.gameobjects.ScrollHandler;
 import com.mygdx.gameobjects.SpaceMan;
@@ -22,6 +23,11 @@ public class GameWorld {
     public void update(float delta) {
     	spaceMan.update(delta);
     	scroller.update(delta);
+    	
+    	// Check if objects in scroller collides with spaceman 
+    	if(scroller.collideWith(spaceMan)){
+    		Gdx.app.log("Collides", "Boom!!");
+    	}
     }
 
     public SpaceMan getSpaceMan() {

@@ -1,6 +1,7 @@
 package com.mygdx.gameobjects;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 public class SpaceMan {
@@ -13,6 +14,8 @@ public class SpaceMan {
 	private int height;
 	
 	private boolean isMovingUp = true;
+	
+	private Rectangle collisionRect;
 
 	public SpaceMan(float x, float y, int width, int height) {
 		this.width = width;
@@ -21,6 +24,7 @@ public class SpaceMan {
 		// Adjust values for better physics
 		velocity = new Vector2(0, 0);
 		acceleration = new Vector2(0, 0);
+		collisionRect = new Rectangle();
 	}
 
 	public void update(float delta) {
@@ -46,7 +50,10 @@ public class SpaceMan {
 
 		position.add(velocity.cpy().scl(delta));
 		
+		// Set collision rectangle position
+		collisionRect.set(position.x, position.y, width, height);
 		
+	
 		// Check which direction the spaceman is moving (Up or Down)
 		if (velocity.y < 0)
 			isMovingUp = true;
@@ -85,6 +92,10 @@ public class SpaceMan {
 
 	public boolean isMovingUp() {
 		return isMovingUp;
+	}
+	
+	public Rectangle getCollisionRect(){
+		return collisionRect;
 	}
 
 }

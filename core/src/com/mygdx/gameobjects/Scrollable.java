@@ -1,5 +1,6 @@
 package com.mygdx.gameobjects;
 
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 public class Scrollable {
@@ -8,6 +9,7 @@ public class Scrollable {
 	protected int width;
 	protected int height;
 	protected boolean isScrolledLeft;
+	protected Rectangle collisionRect;
 
 	public Scrollable(float x, float y, int width, int height, float scrollSpeed) {
 		position = new Vector2(x, y);
@@ -15,6 +17,7 @@ public class Scrollable {
 		this.width = width;
 		this.height = height;
 		isScrolledLeft = false;
+		collisionRect = new Rectangle();
 	}
 
 	public void update(float delta) {
@@ -24,6 +27,9 @@ public class Scrollable {
 		if (position.x + width < 0) {
 			isScrolledLeft = true;
 		}
+		
+		// Set collision rectangle position
+		collisionRect.set(position.x, position.y, width, height);
 	}
 
 	// Reset: Should Override in subclass for more specific behavior.
@@ -55,6 +61,10 @@ public class Scrollable {
 
 	public int getHeight() {
 		return height;
+	}
+	
+	public Rectangle getCollisionRect(){
+		return collisionRect;
 	}
 
 }

@@ -46,6 +46,11 @@ public class ScrollHandler {
             enemy3.reset(enemy2.getTailX() + ENEMY_GAP);
         }
     }
+    
+    // check if enemies collide with spaceman 
+    public boolean collideWith(SpaceMan spaceMan) {
+       return (enemy1.collides(spaceMan) || enemy2.collides(spaceMan) || enemy3.collides(spaceMan));
+    }
 
 	public Ground getFrontGround() {
 		return frontGround;
