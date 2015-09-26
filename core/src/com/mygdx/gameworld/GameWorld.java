@@ -10,10 +10,10 @@ public class GameWorld {
     private Vector2 PlanetGravity_acceleration;
     private ScrollHandler scroller;
 
-    public GameWorld() {
-    	// Set acceleration
-    	PlanetGravity_acceleration = new Vector2(0, -50);
-        spaceMan = new SpaceMan(20, 300, 50, 75);
+    public GameWorld(int midPointY) {
+        // Set acceleration
+        PlanetGravity_acceleration = new Vector2(0, -50);
+        spaceMan = new SpaceMan(53, midPointY, 75, 125);
         spaceMan.setAcceleration(PlanetGravity_acceleration);
         
         scroller = new ScrollHandler(370);

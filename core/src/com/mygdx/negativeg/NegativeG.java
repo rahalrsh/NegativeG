@@ -9,7 +9,7 @@ import com.mygdx.screens.GameScreen;
 public class NegativeG extends Game {
 	@Override
     public void create() {
-        Gdx.app.log("ZBGame", "created");
+        Gdx.app.log("NegativeG", "created");
         AssetLoader.load();
         setScreen(new GameScreen());
     }
