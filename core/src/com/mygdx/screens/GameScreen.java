@@ -28,7 +28,7 @@ public class GameScreen implements Screen {
 		renderer = new GameRenderer(world);
 		
 		// attach the input handler to the game world 
-		Gdx.input.setInputProcessor(new InputHandler(world.getSpaceMan()));
+		Gdx.input.setInputProcessor(new InputHandler(world));
 	}
 
 	@Override

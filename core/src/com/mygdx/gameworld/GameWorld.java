@@ -10,8 +10,12 @@ public class GameWorld {
     private SpaceMan spaceMan;
     private Vector2 PlanetGravity_acceleration;
     private ScrollHandler scroller;
+    private GameState currentGameState; 
 
     public GameWorld(int midPointY) {
+    	// Set current game state to player READY
+    	currentGameState = GameState.READY;
+    	
         // Set acceleration
         PlanetGravity_acceleration = new Vector2(0, -50);
         spaceMan = new SpaceMan(53, midPointY, 75, 100);
@@ -19,8 +23,34 @@ public class GameWorld {
         
         scroller = new ScrollHandler(370);
     }
+    
+    public enum GameState {
+        READY, RUNNING, GAMEOVER
+    }
    
     public void update(float delta) {
+    	
+    	switch(currentGameState){
+    	
+    	case READY:
+    		updateReady(delta);
+    		break;
+    		
+    	case RUNNING:
+    		updateRunning(delta);
+    		break;
+    	
+    	}
+    	
+    }
+    
+    // Update method for READY state
+    public void updateReady(float delta) {
+    	
+    }
+    
+    // Update methods for RUNNING state
+    public void updateRunning(float delta) {
     	spaceMan.update(delta);
     	scroller.update(delta);
     	
@@ -30,6 +60,7 @@ public class GameWorld {
     	}
     }
 
+    
     public SpaceMan getSpaceMan() {
 		return spaceMan;
 	}
@@ -37,5 +68,17 @@ public class GameWorld {
     public ScrollHandler getScroller(){
     	return scroller;
     }
+    
+    // Game state helper functions
+    // Return true if current game state is ready
+    public boolean isReady() {
+        return currentGameState == GameState.READY;
+    }
+    
+    public void startGame(){
+    	currentGameState = GameState.RUNNING;
+    }
+    
+    
 
 }

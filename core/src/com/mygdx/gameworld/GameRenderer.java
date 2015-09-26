@@ -102,9 +102,14 @@ public class GameRenderer {
 					spaceMan.getX(), spaceMan.getY(), spaceMan.getWidth(),
 					spaceMan.getHeight());
 
+		
 		// draw Enemies
 		drawEnemies();
 
+		// draw GET READY
+		if (myWorld.isReady())
+			drawGetReady();
+		
 		// End SpriteBatch
 		batcher.end();
 
@@ -119,6 +124,11 @@ public class GameRenderer {
 			shapeRenderer.end();
 		}
 
+	}
+
+	private void drawGetReady() {
+		batcher.draw(AssetLoader.getReady, 200,200, 400, 60);
+		//batcher.draw(AssetLoader.tapTick, 350,200, 80, 80);
 	}
 
 }

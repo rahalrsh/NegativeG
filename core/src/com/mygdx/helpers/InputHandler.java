@@ -2,15 +2,18 @@ package com.mygdx.helpers;
 
 import com.badlogic.gdx.InputProcessor;
 import com.mygdx.gameobjects.SpaceMan;
+import com.mygdx.gameworld.GameWorld;
 
 public class InputHandler implements InputProcessor{
 	
 	private SpaceMan mySpaceman;
+	private GameWorld myWorld;
 	
 	// Ask for a reference to the SpaceMan when InputHandler is created.
-    public InputHandler(SpaceMan spaceman) {
+    public InputHandler(GameWorld world) {
         // myBird now represents the gameWorld's bird.
-    	mySpaceman = spaceman;
+    	mySpaceman = world.getSpaceMan();
+    	myWorld = world;
     }
     
     @Override
@@ -24,6 +27,11 @@ public class InputHandler implements InputProcessor{
 	public boolean keyDown(int keycode) {
 		// TODO Auto-generated method stub
 		mySpaceman.onkeyDown(keycode);
+		
+		// If game is in get READY state, start the game by setting the game state to RUNNING
+		if(myWorld.isReady())
+			myWorld.startGame();
+		
 		return false;
 	}
 
