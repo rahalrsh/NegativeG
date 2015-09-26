@@ -36,17 +36,33 @@ public class SpaceMan {
 			velocity.y = 200;
 		}
 		
+		// y out of bound logic 
 		if ( (position.y + height) >= 420){
-			Gdx.app.log("Bound", "out");
+			Gdx.app.log("y Bound", "out");
 			// position.y = 420 - height;
 			velocity.y = -100;
 
 		}
 		else if(position.y <= 0){
-			Gdx.app.log("Bound", "out");
+			Gdx.app.log("y Bound", "out");
 			// position.y = 0;
 			velocity.y = 100;
 		}
+		
+		// x out of bound logic 
+		if ( (position.x + width) >= 800){
+			Gdx.app.log("x Bound", "out");
+			// position.y = 420 - height;
+			velocity.x = -100;
+
+		}
+		else if(position.x <= 0){
+			Gdx.app.log("x Bound", "out");
+			// position.y = 0;
+			velocity.x = 100;
+		}
+		
+		
 
 		position.add(velocity.cpy().scl(delta));
 		
@@ -96,6 +112,24 @@ public class SpaceMan {
 	
 	public Rectangle getCollisionRect(){
 		return collisionRect;
+	}
+
+	public void onkeyDown(int keycode) {
+		
+		if (keycode == 19){ // 19 is the UP command for libGDx
+			velocity.y = -90;
+		}
+		if (keycode == 20){ // 20 is the DOWN command for libGDx
+			velocity.y = 90;
+		}
+		if (keycode == 21){ // 21 is the LEFT command for libGDx
+			velocity.x = -90;
+		}
+		if (keycode == 22){ // 22 is the RIGHT command for libGDx
+			velocity.x = 90;
+		}
+		// TODO Auto-generated method stub
+		
 	}
 
 }
