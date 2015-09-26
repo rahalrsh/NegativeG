@@ -2,23 +2,30 @@ BasicTextures.png
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-tapTick
+smoke
   rotate: false
   xy: 2, 2
+  size: 51, 48
+  orig: 51, 48
+  offset: 0, 0
+  index: -1
+tapTick
+  rotate: false
+  xy: 55, 2
   size: 59, 59
   orig: 59, 59
   offset: 0, 0
   index: -1
 buttonLarge
   rotate: false
-  xy: 63, 2
+  xy: 116, 2
   size: 196, 70
   orig: 196, 70
   offset: 0, 0
   index: -1
 groundRock
   rotate: false
-  xy: 261, 2
+  xy: 314, 2
   size: 808, 71
   orig: 808, 71
   offset: 0, 0
@@ -37,16 +44,23 @@ textGameOver
   orig: 412, 78
   offset: 0, 0
   index: -1
-shipYellow_manned
+flame
   rotate: false
   xy: 818, 75
+  size: 41, 80
+  orig: 41, 80
+  offset: 0, 0
+  index: -1
+shipYellow_manned
+  rotate: false
+  xy: 861, 75
   size: 124, 108
   orig: 124, 108
   offset: 0, 0
   index: -1
 shipBeige_manned
   rotate: false
-  xy: 944, 75
+  xy: 987, 75
   size: 124, 122
   orig: 124, 122
   offset: 0, 0
@@ -72,30 +86,37 @@ shipBlue_manned
   orig: 124, 145
   offset: 0, 0
   index: -1
-laserYellow_burst
+jetpack
   rotate: false
   xy: 380, 199
+  size: 133, 160
+  orig: 133, 160
+  offset: 0, 0
+  index: -1
+laserYellow_burst
+  rotate: false
+  xy: 515, 199
   size: 188, 188
   orig: 188, 188
   offset: 0, 0
   index: -1
 alienGreen_hit
   rotate: false
-  xy: 570, 199
+  xy: 705, 199
   size: 128, 256
   orig: 128, 256
   offset: 0, 0
   index: -1
 alienGreen_swim1
   rotate: false
-  xy: 700, 199
+  xy: 835, 199
   size: 128, 256
   orig: 128, 256
   offset: 0, 0
   index: -1
 alienGreen_swim2
   rotate: false
-  xy: 830, 199
+  xy: 965, 199
   size: 128, 256
   orig: 128, 256
   offset: 0, 0
