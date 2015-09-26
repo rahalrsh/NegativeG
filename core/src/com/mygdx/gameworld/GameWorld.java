@@ -13,12 +13,12 @@ public class GameWorld {
     public GameWorld(int midPointY) {
         // Set acceleration
         PlanetGravity_acceleration = new Vector2(0, -50);
-        spaceMan = new SpaceMan(53, midPointY, 75, 125);
+        spaceMan = new SpaceMan(53, midPointY, 75, 100);
         spaceMan.setAcceleration(PlanetGravity_acceleration);
         
         scroller = new ScrollHandler(370);
     }
-    
+   
     public void update(float delta) {
     	spaceMan.update(delta);
     	scroller.update(delta);

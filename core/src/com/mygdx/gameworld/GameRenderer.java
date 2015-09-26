@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.mygdx.gameobjects.Enemy;
 import com.mygdx.gameobjects.Ground;
 import com.mygdx.gameobjects.ScrollHandler;
 import com.mygdx.gameobjects.SpaceMan;
@@ -17,6 +18,7 @@ public class GameRenderer {
     private SpaceMan spaceMan;
     private ScrollHandler scroller;
     private Ground frontGround, backGround;
+    private Enemy enemy1, enemy2, enemy3;  
 
     private SpriteBatch batcher;
 
@@ -34,6 +36,12 @@ public class GameRenderer {
         scroller = myWorld.getScroller();
         frontGround = scroller.getFrontGround();
         backGround = scroller.getBackGround();
+        
+        enemy1 =scroller.getEnemy1();
+        enemy2 =scroller.getEnemy2();
+        enemy3 =scroller.getEnemy3();
+        
+        		
     }
     
     private void drawGround() {
@@ -43,6 +51,18 @@ public class GameRenderer {
         batcher.draw(AssetLoader.ground, backGround.getX(), backGround.getY(),
         		backGround.getWidth(), backGround.getHeight());
     }
+    
+    private void drawEnemies() {
+    	
+        batcher.draw(AssetLoader.yellowAlien,enemy1.getX(), enemy1.getY(),enemy1.getWidth(),enemy1.getHeight());
+
+        
+        batcher.draw(AssetLoader.greenAlien,enemy2.getX(), enemy2.getY(), enemy2.getWidth(),enemy2.getHeight());
+
+        
+        batcher.draw(AssetLoader.beigeAlien,enemy3.getX(), enemy3.getY(), enemy3.getWidth(),enemy3.getHeight());
+		
+	}
 
     public void render(float runTime) {
 
@@ -73,9 +93,13 @@ public class GameRenderer {
         else
         	batcher.draw(AssetLoader.spacemanDown.getKeyFrame(runTime),spaceMan.getX(), spaceMan.getY(), spaceMan.getWidth(), spaceMan.getHeight());
         
-        
+        // draw Enemies 
+        drawEnemies();
+
         // End SpriteBatch
         batcher.end();
     }
+
+	
 }
 
