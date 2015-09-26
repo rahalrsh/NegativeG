@@ -45,15 +45,10 @@ public class GameRenderer {
     }
 
     public void render(float runTime) {
-        Gdx.app.log("GameRenderer", "render");
-
-        // We will move these outside of the loop for performance later.
-        // SpaceMan spaceMan = myWorld.getSpaceMan();
 
         // Fill the entire screen with black, to prevent potential flickering.
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
 
         // Begin SpriteBatch
         batcher.begin();
@@ -66,7 +61,6 @@ public class GameRenderer {
         // Needs transparency, so we enable that again.
         batcher.enableBlending();
         
-        
         // Draw the ground/planet surface
         drawGround();
 
@@ -76,8 +70,6 @@ public class GameRenderer {
         // Pass in the runTime variable to get the current frame.
         batcher.draw(AssetLoader.spacemanSwim1,spaceMan.getX(), spaceMan.getY(), spaceMan.getWidth(), spaceMan.getHeight());
         
-        
-
         // End SpriteBatch
         batcher.end();
     }

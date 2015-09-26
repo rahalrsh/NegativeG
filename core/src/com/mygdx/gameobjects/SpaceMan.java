@@ -29,8 +29,19 @@ public class SpaceMan {
 		if (velocity.y > 200) {
 			velocity.y = 200;
 		}
+		
+		if ( (position.y + height) >= 420){
+			Gdx.app.log("Bound", "out");
+			// position.y = 420 - height;
+			velocity.y = -100;
 
-		// update position
+		}
+		else if(position.y <= 0){
+			Gdx.app.log("Bound", "out");
+			// position.y = 0;
+			velocity.y = 100;
+		}
+
 		position.add(velocity.cpy().scl(delta));
 
 	}
