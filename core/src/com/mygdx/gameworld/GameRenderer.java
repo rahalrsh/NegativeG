@@ -26,8 +26,11 @@ public class GameRenderer {
 	
 	String story = 
   		  "For the first time humans have discoverd a planet with negative gravity.\n"
-  		+ "           Use your special jet pack to survive in this planet.\n\n\n\n"
-  		+ "                     press acrrow keys to continue.";
+  		+ "    This negative gravity will push you away from the planet's surface.\n"
+  		+ "           Use your special jet pack to survive in this planet.\n\n\n"
+  		+ "                press DOWN arrow key to activate jet pack\n"
+  		+ "                   press LEFT/Right arrow keys to move\n\n\n"
+  		+ "                         press any key to continue.";
 	
 	String gameOverText = "Press SPACE to continue\n\n";
 	
@@ -142,7 +145,7 @@ public class GameRenderer {
 		// draw GET READY
 		if (myWorld.isReady()){
 			drawGetReady();
-			displayText(story, 250, 250);
+			displayText(story, 430, 200);
 		}
 		
 		// draw GAME OVER
