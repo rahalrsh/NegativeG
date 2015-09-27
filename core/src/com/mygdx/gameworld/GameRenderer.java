@@ -20,7 +20,7 @@ public class GameRenderer {
 	private SpaceMan spaceMan;
 	private ScrollHandler scroller;
 	private Ground frontGround, backGround;
-	private Enemy enemy1, enemy2, enemy3;
+	private Enemy enemy1, enemy2, enemy3, enemy4;
 	private ShapeRenderer shapeRenderer;
 	private boolean drawCollitionShapes = false;
 	
@@ -60,6 +60,7 @@ public class GameRenderer {
 		enemy1 = scroller.getEnemy1();
 		enemy2 = scroller.getEnemy2();
 		enemy3 = scroller.getEnemy3();
+		enemy4 = scroller.getEnemy4();
 
 	}
 
@@ -79,6 +80,8 @@ public class GameRenderer {
 				enemy2.getWidth(), enemy2.getHeight());
 		batcher.draw(AssetLoader.yellowAlien, enemy3.getX(), enemy3.getY(),
 				enemy3.getWidth(), enemy3.getHeight());
+		batcher.draw(AssetLoader.blueAlien, enemy4.getX(), enemy4.getY(),
+				enemy4.getWidth(), enemy4.getHeight());
 	}
 
 	public void render(float runTime) {
@@ -166,10 +169,12 @@ public class GameRenderer {
 			shapeRenderer.rect(enemy1.getCollisionRect().x,enemy1.getCollisionRect().y, enemy1.getCollisionRect().getWidth(),enemy1.getCollisionRect().getHeight());
 			shapeRenderer.rect(enemy2.getCollisionRect().x,enemy2.getCollisionRect().y, enemy2.getCollisionRect().getWidth(),enemy2.getCollisionRect().getHeight());
 			shapeRenderer.rect(enemy3.getCollisionRect().x,enemy3.getCollisionRect().y, enemy3.getCollisionRect().getWidth(),enemy3.getCollisionRect().getHeight());
+			shapeRenderer.rect(enemy4.getCollisionRect().x,enemy4.getCollisionRect().y, enemy4.getCollisionRect().getWidth(),enemy4.getCollisionRect().getHeight());
 			
 			shapeRenderer.rect(enemy1.getCollisionRect2().x,enemy1.getCollisionRect2().y, enemy1.getCollisionRect2().getWidth(),enemy1.getCollisionRect2().getHeight());
-			shapeRenderer.rect(enemy2.getCollisionRect2().x,enemy2.getCollisionRect2().y, enemy1.getCollisionRect2().getWidth(),enemy1.getCollisionRect2().getHeight());
-			shapeRenderer.rect(enemy3.getCollisionRect2().x,enemy3.getCollisionRect2().y, enemy1.getCollisionRect2().getWidth(),enemy1.getCollisionRect2().getHeight());
+			shapeRenderer.rect(enemy2.getCollisionRect2().x,enemy2.getCollisionRect2().y, enemy2.getCollisionRect2().getWidth(),enemy2.getCollisionRect2().getHeight());
+			shapeRenderer.rect(enemy3.getCollisionRect2().x,enemy3.getCollisionRect2().y, enemy3.getCollisionRect2().getWidth(),enemy3.getCollisionRect2().getHeight());
+			shapeRenderer.rect(enemy4.getCollisionRect2().x,enemy4.getCollisionRect2().y, enemy4.getCollisionRect2().getWidth(),enemy4.getCollisionRect2().getHeight());
 			
 			shapeRenderer.end();
 		}
