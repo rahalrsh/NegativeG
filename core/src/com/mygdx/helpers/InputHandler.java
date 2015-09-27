@@ -40,6 +40,8 @@ public class InputHandler implements InputProcessor{
 	@Override
 	public boolean keyUp(int keycode) {
 		// TODO Auto-generated method stub
+		mySpaceman.onkeyUp(keycode);
+		
 		return false;
 	}
 

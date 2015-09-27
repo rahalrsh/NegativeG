@@ -3,6 +3,8 @@ package com.mygdx.gameobjects;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Timer;
+import com.badlogic.gdx.utils.Timer.Task;
 
 public class SpaceMan {
 	private Vector2 position;
@@ -16,6 +18,7 @@ public class SpaceMan {
 	private float x,y;
 	
 	private boolean isMovingUp = true;
+	private boolean isJetPackOn = false;
 	
 	private Rectangle collisionRect;
 
@@ -75,10 +78,16 @@ public class SpaceMan {
 		
 	
 		// Check which direction the spaceman is moving (Up or Down)
-		if (velocity.y < 0)
+		if (velocity.y < 0){
 			isMovingUp = true;
-		else
+			isJetPackOn = false;
+		}
+		else{
 			isMovingUp = false;
+		}
+		
+		
+		// isJetPackOn = false;
 
 	}
 
@@ -125,6 +134,11 @@ public class SpaceMan {
 		}
 		if (keycode == 20){ // 20 is the DOWN command for libGDx
 			velocity.y = 90;
+			isJetPackOn = true;
+			
+			// set isJetPackOn=false in few seconds (off the jet pack)
+			// this will stop the jet pack flame animation from rendering after few seconds
+			// turnOff(0.5f);
 		}
 		if (keycode == 21){ // 21 is the LEFT command for libGDx
 			velocity.x = -90;
@@ -135,10 +149,35 @@ public class SpaceMan {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void onkeyUp(int keycode) {
+		if (keycode == 20){ // 20 is the DOWN command for libGDx
+			isJetPackOn = false;
+		}
+		
+	}
 
 	public void restart() {
+		isMovingUp = true;
+		isJetPackOn = false;
 		position.set(x, y);
 		
+	}
+
+	public boolean isJetPackOn() {
+		return isJetPackOn;
+	}
+	
+	// Turn off the jet pack 
+	// delay is in seconds
+	public void turnOff(float delay){
+
+		Timer.schedule(new Task(){
+		    @Override
+		    public void run() {
+		    	isJetPackOn = false;
+		    }
+		}, delay);
 	}
 
 }

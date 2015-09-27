@@ -103,6 +103,18 @@ public class GameRenderer {
 				spaceMan.getY() + 10, spaceMan.getWidth() / 2,
 				spaceMan.getHeight() / 2, spaceMan.getWidth(),
 				spaceMan.getHeight(), 0.7f, 0.7f, 160.0f);
+		
+		// Draw the fire coming out from the jet pack
+		if (spaceMan.isJetPackOn()){
+			batcher.draw(AssetLoader.flame, spaceMan.getX() - 15,
+					spaceMan.getY()-20, spaceMan.getWidth()/3,
+					spaceMan.getHeight()/3, spaceMan.getWidth()/2,
+					spaceMan.getHeight(), 0.65f, 0.55f, 160.0f);
+			batcher.draw(AssetLoader.flame, spaceMan.getX() - 40,
+					spaceMan.getY()-15, spaceMan.getWidth()/3,
+					spaceMan.getHeight()/3, spaceMan.getWidth()/2,
+					spaceMan.getHeight(), 0.65f, 0.55f, 160.0f);
+			}
 
 		// Pass in the runTime variable to get the current frame.
 		if (spaceMan.isMovingUp())
@@ -112,6 +124,7 @@ public class GameRenderer {
 			batcher.draw(AssetLoader.spacemanDown.getKeyFrame(runTime),
 					spaceMan.getX(), spaceMan.getY(), spaceMan.getWidth(),
 					spaceMan.getHeight());
+		
 
 		
 		// draw Enemies

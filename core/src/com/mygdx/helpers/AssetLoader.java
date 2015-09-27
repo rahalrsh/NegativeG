@@ -23,6 +23,7 @@ public class AssetLoader {
     public static TextureRegion pinkAlien;
     public static TextureRegion getReady;
     public static TextureRegion gameOver;
+    public static TextureRegion flame;
     
     // for animations
     public static TextureRegion alienGreen_swim1;
@@ -92,6 +93,9 @@ public class AssetLoader {
     	
     	gameOver = new TextureRegion();
     	gameOver = basicTextureAtlas.findRegion("textGameOver");
+    	
+    	flame = new TextureRegion();
+    	flame = basicTextureAtlas.findRegion("flame");
 
     	coin = Gdx.audio.newSound(Gdx.files.internal("coin.wav"));
  
