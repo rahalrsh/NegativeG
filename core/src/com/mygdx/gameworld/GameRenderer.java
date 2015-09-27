@@ -25,7 +25,7 @@ public class GameRenderer {
 	private boolean drawCollitionShapes = false;
 	
 	String story = 
-  		  "For the first time humans have discoverd a planet with negative gravity.\n"
+  		  "For the first time humans have discovered a planet with negative gravity.\n"
   		+ "    This negative gravity will push you away from the planet's surface.\n"
   		+ "           Use your special jet pack to survive in this planet.\n\n\n"
   		+ "                press DOWN arrow key to activate jet pack\n"
