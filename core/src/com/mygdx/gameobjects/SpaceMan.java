@@ -71,7 +71,7 @@ public class SpaceMan {
 		position.add(velocity.cpy().scl(delta));
 		
 		// Set collision rectangle position
-		collisionRect.set(position.x+15, position.y+15, width-30, height-30);
+		collisionRect.set(position.x+15, position.y+5, width-40, height-10);
 		
 	
 		// Check which direction the spaceman is moving (Up or Down)

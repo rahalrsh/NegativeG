@@ -131,10 +131,15 @@ public class GameRenderer {
 		if (drawCollitionShapes) {
 			shapeRenderer.begin(ShapeType.Filled);
 			shapeRenderer.setColor(Color.RED);
-			shapeRenderer.rect(spaceMan.getCollisionRect().x,spaceMan.getCollisionRect().y, spaceMan.getWidth(),spaceMan.getHeight());
+			shapeRenderer.rect(spaceMan.getCollisionRect().x,spaceMan.getCollisionRect().y, spaceMan.getCollisionRect().getWidth(),spaceMan.getCollisionRect().getHeight());
 			shapeRenderer.rect(enemy1.getCollisionRect().x,enemy1.getCollisionRect().y, enemy1.getCollisionRect().getWidth(),enemy1.getCollisionRect().getHeight());
 			shapeRenderer.rect(enemy2.getCollisionRect().x,enemy2.getCollisionRect().y, enemy2.getCollisionRect().getWidth(),enemy2.getCollisionRect().getHeight());
 			shapeRenderer.rect(enemy3.getCollisionRect().x,enemy3.getCollisionRect().y, enemy3.getCollisionRect().getWidth(),enemy3.getCollisionRect().getHeight());
+			
+			shapeRenderer.rect(enemy1.getCollisionRect2().x,enemy1.getCollisionRect2().y, enemy1.getCollisionRect2().getWidth(),enemy1.getCollisionRect2().getHeight());
+			shapeRenderer.rect(enemy2.getCollisionRect2().x,enemy2.getCollisionRect2().y, enemy1.getCollisionRect2().getWidth(),enemy1.getCollisionRect2().getHeight());
+			shapeRenderer.rect(enemy3.getCollisionRect2().x,enemy3.getCollisionRect2().y, enemy1.getCollisionRect2().getWidth(),enemy1.getCollisionRect2().getHeight());
+			
 			shapeRenderer.end();
 		}
 		

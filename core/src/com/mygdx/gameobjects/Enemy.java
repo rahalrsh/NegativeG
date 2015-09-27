@@ -28,7 +28,8 @@ public class Enemy extends Scrollable {
 
 	// check if enemies collide with spaceman
 	public boolean collides(SpaceMan spaceman) {
-		return Intersector.overlaps(spaceman.getCollisionRect(), collisionRect);
+		return (Intersector.overlaps(spaceman.getCollisionRect(), collisionRect) 
+				|| Intersector.overlaps(spaceman.getCollisionRect(), collisionRect2));
 
 	}
 

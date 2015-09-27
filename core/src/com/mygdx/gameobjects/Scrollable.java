@@ -10,6 +10,7 @@ public class Scrollable {
 	protected int height;
 	protected boolean isScrolledLeft;
 	protected Rectangle collisionRect;
+	protected Rectangle collisionRect2;
 
 	public Scrollable(float x, float y, int width, int height, float scrollSpeed) {
 		position = new Vector2(x, y);
@@ -18,6 +19,7 @@ public class Scrollable {
 		this.height = height;
 		isScrolledLeft = false;
 		collisionRect = new Rectangle();
+		collisionRect2 = new Rectangle();
 	}
 
 	public void update(float delta) {
@@ -29,7 +31,8 @@ public class Scrollable {
 		}
 		
 		// Set collision rectangle position
-		collisionRect.set(position.x+15, position.y+15, width-30, height-30);
+		collisionRect.set(position.x+10, position.y+55, width-20, height-70);
+		collisionRect2.set(position.x+35, position.y+15, width-70, height-20);
 	}
 
 	// Reset: Should Override in subclass for more specific behavior.
@@ -66,9 +69,9 @@ public class Scrollable {
 	public Rectangle getCollisionRect(){
 		return collisionRect;
 	}
-	
-	public void restart (){
-		
+
+	public Rectangle getCollisionRect2() {
+		return collisionRect2;
 	}
 
 }
