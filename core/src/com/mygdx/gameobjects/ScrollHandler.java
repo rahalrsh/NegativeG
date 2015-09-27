@@ -127,6 +127,11 @@ public class ScrollHandler {
 		enemy2.position.set(enemy1.getTailX() + ENEMY_GAP, 0);
 		enemy3.position.set(enemy2.getTailX() + ENEMY_GAP, 200);
 		enemy4.position.set(enemy3.getTailX() + ENEMY_GAP, 300);
+		
+		enemy1.setScored(false);
+		enemy2.setScored(false);
+		enemy3.setScored(false);
+		enemy4.setScored(false);
 	}
 
 }

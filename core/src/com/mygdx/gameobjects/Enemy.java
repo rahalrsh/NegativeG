@@ -46,7 +46,7 @@ public class Enemy extends Scrollable {
 			}
 		}
 		else{
-			velocity.y = 0;
+			velocity.y = 20;
 		}
 	}
 
