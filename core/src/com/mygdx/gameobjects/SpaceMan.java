@@ -45,14 +45,10 @@ public class SpaceMan {
 		
 		// y out of bound logic 
 		if ( (position.y + height) >= 420){
-			Gdx.app.log("y Bound", "out");
-			// position.y = 420 - height;
 			velocity.y = -100;
 
 		}
 		else if(position.y <= 0){
-			Gdx.app.log("y Bound", "out");
-			// position.y = 0;
 			velocity.y = 100;
 		}
 		

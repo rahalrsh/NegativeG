@@ -2,6 +2,7 @@ package com.mygdx.gameobjects;
 
 import java.util.Random;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Intersector;
 import com.mygdx.gameworld.GameWorld;
 
@@ -37,12 +38,22 @@ public class Enemy extends Scrollable {
 	
 	public void EnemyAI(){
 		// First try to catch the player
+		int score = gameWorld.getScore();
+		
+		// For each 4 points we increase AI difficulty
+		int difficulty = score/4;
+		Gdx.app.log("diff", difficulty+"");
+		
+		// Don't increase the difficulty after level 50
+		if (difficulty>=4)
+			difficulty=4;
+		
 		if (position.x > gameWorld.getSpaceMan().getX()){
 			if ( (position.y - height/2) > (gameWorld.getSpaceMan().getY() - gameWorld.getSpaceMan().getHeight()/2)){
-				velocity.y = -20;
+				velocity.y = -20 + (-4*difficulty);
 			}
 			else{
-				velocity.y = 20;
+				velocity.y = 20 + (4*difficulty);
 			}
 		}
 		else{
