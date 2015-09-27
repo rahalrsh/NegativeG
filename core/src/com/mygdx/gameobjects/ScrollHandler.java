@@ -8,7 +8,7 @@ public class ScrollHandler {
 	private Ground frontGround, backGround;
 	private Enemy enemy1, enemy2, enemy3;
 
-	public static final int SCROLL_SPEED = -59;
+	public static final int SCROLL_SPEED = -100;
 	public static final int ENEMY_GAP = 200;
 	
 	 private GameWorld gameWorld;
@@ -19,9 +19,9 @@ public class ScrollHandler {
 		frontGround = new Ground(0, yPos, 800, 50, SCROLL_SPEED);
 		backGround = new Ground(frontGround.getTailX(), yPos, 800, 50,SCROLL_SPEED);
 
-		enemy1 = new Enemy(210, 50, 120, 120, SCROLL_SPEED);
-		enemy2 = new Enemy(enemy1.getTailX() + ENEMY_GAP, 0, 120, 120,SCROLL_SPEED);
-		enemy3 = new Enemy(enemy2.getTailX() + ENEMY_GAP, 200, 120, 120,SCROLL_SPEED);
+		enemy1 = new Enemy(210, 50, 120, 120, SCROLL_SPEED, gameWorld);
+		enemy2 = new Enemy(enemy1.getTailX() + ENEMY_GAP, 0, 120, 120,SCROLL_SPEED, gameWorld);
+		enemy3 = new Enemy(enemy2.getTailX() + ENEMY_GAP, 200, 120, 120,SCROLL_SPEED, gameWorld);
 
 	}
 

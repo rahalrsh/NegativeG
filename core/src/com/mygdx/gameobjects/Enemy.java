@@ -3,18 +3,21 @@ package com.mygdx.gameobjects;
 import java.util.Random;
 
 import com.badlogic.gdx.math.Intersector;
+import com.mygdx.gameworld.GameWorld;
 
 public class Enemy extends Scrollable {
 
 	private Random r;
 	private boolean isScored = false;
+	GameWorld gameWorld;
 
 	// When Pipe's constructor is invoked, invoke the super (Scrollable)
 	// constructor
-	public Enemy(float x, float y, int width, int height, float scrollSpeed) {
+	public Enemy(float x, float y, int width, int height, float scrollSpeed, GameWorld gameWorld) {
 		super(x, y, width, height, scrollSpeed);
 		// Initialize a Random object for Random number generation
 		r = new Random();
+		this.gameWorld = gameWorld;
 	}
 
 	@Override
@@ -24,6 +27,27 @@ public class Enemy extends Scrollable {
 		// Change the height to a random number
 		position.y = r.nextInt(250) + 15;
 		isScored = false;
+	}
+	
+	@Override
+	public void update(float delta) {
+		super.update(delta);
+		EnemyAI();
+	}
+	
+	public void EnemyAI(){
+		// First try to catch the player
+		if (position.x > gameWorld.getSpaceMan().getX()){
+			if ( (position.y - height/2) > (gameWorld.getSpaceMan().getY() - gameWorld.getSpaceMan().getHeight()/2)){
+				velocity.y = -20;
+			}
+			else{
+				velocity.y = 20;
+			}
+		}
+		else{
+			velocity.y = 0;
+		}
 	}
 
 	// check if enemies collide with spaceman

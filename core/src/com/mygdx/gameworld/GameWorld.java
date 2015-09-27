@@ -20,7 +20,7 @@ public class GameWorld {
 		currentGameState = GameState.READY;
 
 		// Set acceleration
-		PlanetGravity_acceleration = new Vector2(0, -50);
+		PlanetGravity_acceleration = new Vector2(0, -250);
 		spaceMan = new SpaceMan(53, midPointY, 75, 100);
 		spaceMan.setAcceleration(PlanetGravity_acceleration);
 

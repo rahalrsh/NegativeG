@@ -130,10 +130,10 @@ public class SpaceMan {
 	public void onkeyDown(int keycode) {
 		
 		if (keycode == 19){ // 19 is the UP command for libGDx
-			velocity.y = -90;
+			//velocity.y = -90;
 		}
 		if (keycode == 20){ // 20 is the DOWN command for libGDx
-			velocity.y = 90;
+			velocity.y = 200;
 			isJetPackOn = true;
 			
 			// set isJetPackOn=false in few seconds (off the jet pack)
