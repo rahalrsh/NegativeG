@@ -23,6 +23,17 @@ public class GameRenderer {
 	private Enemy enemy1, enemy2, enemy3;
 	private ShapeRenderer shapeRenderer;
 	private boolean drawCollitionShapes = false;
+	
+	String story = 
+  		  "For the first time humans have discoverd a planet with negative gravity.\n"
+  		+ "           Use your special jet pack to survive in this planet.\n\n\n\n"
+  		+ "                     press acrrow keys to continue.";
+	
+	String gameOverText = "Press SPACE to continue\n\n";
+	
+    String creditsText = "Credits: Rahal R     Nisal P                 "
+			+ "Art: kenney.nl        "
+			+ "Music: soundimage.org";
 
 	private SpriteBatch batcher;
 
@@ -59,11 +70,11 @@ public class GameRenderer {
 	}
 
 	private void drawEnemies() {
-		batcher.draw(AssetLoader.yellowAlien, enemy1.getX(), enemy1.getY(),
+		batcher.draw(AssetLoader.beigeAlien, enemy1.getX(), enemy1.getY(),
 				enemy1.getWidth(), enemy1.getHeight());
 		batcher.draw(AssetLoader.pinkAlien, enemy2.getX(), enemy2.getY(),
 				enemy2.getWidth(), enemy2.getHeight());
-		batcher.draw(AssetLoader.beigeAlien, enemy3.getX(), enemy3.getY(),
+		batcher.draw(AssetLoader.yellowAlien, enemy3.getX(), enemy3.getY(),
 				enemy3.getWidth(), enemy3.getHeight());
 	}
 
@@ -112,16 +123,20 @@ public class GameRenderer {
 		if (!myWorld.isGameOver())
 			drawScore(136, 15);
 	
+		// set font size
+		AssetLoader.font.getData().setScale(0.60f, -0.60f);
+		
 		// draw GET READY
 		if (myWorld.isReady()){
-			AssetLoader.font.getData().setScale(0.60f, -0.60f);
 			drawGetReady();
+			displayText(story, 250, 250);
 		}
 		
 		// draw GAME OVER
 		if (myWorld.isGameOver()){
-			AssetLoader.font.getData().setScale(1.20f, -1.20f);
 			drawGameOver();
+			displayText(gameOverText, 300, 300);
+			displayText(creditsText, 100, 400);
 		}
 		
 		// End SpriteBatch
@@ -148,13 +163,14 @@ public class GameRenderer {
 	}
 
 	private void drawGetReady() {
-		batcher.draw(AssetLoader.getReady, 200,150, 400, 60);
+		batcher.draw(AssetLoader.getReady, 200,100, 400, 60);
 		//batcher.draw(AssetLoader.tapTick, 350,200, 80, 80);
 	}
 	
 	private void drawGameOver() {
-		batcher.draw(AssetLoader.gameOver, 200,150, 400, 60);
-		drawScore(800, 250);
+		batcher.draw(AssetLoader.gameOver, 200,100, 400, 60);
+		AssetLoader.font.getData().setScale(1.00f, -1.00f);
+		drawScore(800, 200);
 	}
 	
 	private void drawScore(int x, int y) {
@@ -163,6 +179,12 @@ public class GameRenderer {
 
         // Draw score text
         AssetLoader.font.draw(batcher, "" + myWorld.getScore(), (x / 2) - (30* score.length() - 1), y);
+	}
+	
+	private void displayText(String text, int x, int y) {
+		AssetLoader.font.getData().setScale(0.25f, -0.25f);
+        AssetLoader.font.draw(batcher, text, x - (text.length() - 1), y);
+        AssetLoader.font.getData().setScale(0.60f, -0.60f);
 	}
 
 }
