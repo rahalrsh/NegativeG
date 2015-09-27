@@ -66,5 +66,9 @@ public class Scrollable {
 	public Rectangle getCollisionRect(){
 		return collisionRect;
 	}
+	
+	public void restart (){
+		
+	}
 
 }

@@ -13,11 +13,15 @@ public class SpaceMan {
 	private int width;
 	private int height;
 	
+	private float x,y;
+	
 	private boolean isMovingUp = true;
 	
 	private Rectangle collisionRect;
 
 	public SpaceMan(float x, float y, int width, int height) {
+		this.x = x;
+		this.y = y;
 		this.width = width;
 		this.height = height;
 		position = new Vector2(x, y);
@@ -129,6 +133,11 @@ public class SpaceMan {
 			velocity.x = 90;
 		}
 		// TODO Auto-generated method stub
+		
+	}
+
+	public void restart() {
+		position.set(x, y);
 		
 	}
 

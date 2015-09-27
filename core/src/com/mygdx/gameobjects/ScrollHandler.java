@@ -17,14 +17,11 @@ public class ScrollHandler {
 		this.gameWorld = gameWorld;
 		
 		frontGround = new Ground(0, yPos, 800, 50, SCROLL_SPEED);
-		backGround = new Ground(frontGround.getTailX(), yPos, 800, 50,
-				SCROLL_SPEED);
+		backGround = new Ground(frontGround.getTailX(), yPos, 800, 50,SCROLL_SPEED);
 
 		enemy1 = new Enemy(210, 50, 120, 120, SCROLL_SPEED);
-		enemy2 = new Enemy(enemy1.getTailX() + ENEMY_GAP, 0, 120, 120,
-				SCROLL_SPEED);
-		enemy3 = new Enemy(enemy2.getTailX() + ENEMY_GAP, 0, 120, 120,
-				SCROLL_SPEED);
+		enemy2 = new Enemy(enemy1.getTailX() + ENEMY_GAP, 0, 120, 120,SCROLL_SPEED);
+		enemy3 = new Enemy(enemy2.getTailX() + ENEMY_GAP, 200, 120, 120,SCROLL_SPEED);
 
 	}
 
@@ -108,6 +105,13 @@ public class ScrollHandler {
 
 	public Enemy getEnemy3() {
 		return enemy3;
+	}
+
+	public void restart() {
+		enemy1.position.set(210, 50);
+		enemy2.position.set(enemy1.getTailX() + ENEMY_GAP, 0);
+		enemy3.position.set(enemy2.getTailX() + ENEMY_GAP, 200);
+		
 	}
 
 }

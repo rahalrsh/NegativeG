@@ -1,6 +1,5 @@
 package com.mygdx.helpers;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.mygdx.gameobjects.SpaceMan;
 import com.mygdx.gameworld.GameWorld;

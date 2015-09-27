@@ -48,4 +48,5 @@ public class Enemy extends Scrollable {
 	 * false; return true; }
 	 **/
 
+
 }

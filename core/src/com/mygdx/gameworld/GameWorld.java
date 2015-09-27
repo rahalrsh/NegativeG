@@ -99,6 +99,9 @@ public class GameWorld {
 	}
 	
 	public void restart(){
+		score = 0;
+		spaceMan.restart();
+		scroller.restart();
 		currentGameState = GameState.READY;
 	}
 
